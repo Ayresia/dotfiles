@@ -3,6 +3,9 @@
     - name: ssh_email
       prompt: Enter your email for the ssh key
       private: false
+    - name: git_username 
+      prompt: Enter your username for git config 
+      private: false
     - name: ssh_passphrase
       prompt: Enter a passphrase for the ssh key
   pre_tasks:
@@ -32,5 +35,6 @@
         - tasks/core-setup.yml
         - tasks/lsp-install.yml
         - tasks/nvim-setup.yml
+        - tasks/git-setup.yml
       loop_control:
         loop_var: task

@@ -1,0 +1,10 @@
+- name: Add git username in global config
+  git_config:
+    name: user.name
+    scope: global
+    value: "{{ git_username }}"
+- name: Add git email in global config
+  git_config:
+    name: user.email
+    scope: global
+    value: "{{ ssh_email }}"
