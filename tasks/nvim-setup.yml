@@ -13,5 +13,5 @@
     state: present
     name: neovim
 
-# - name: Auto install nvim plugins
-#   shell: $ nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+- name: Auto install nvim plugins
+  shell: nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
