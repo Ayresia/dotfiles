@@ -1,0 +1,39 @@
+# handle if rust is already installed
+- name: Install rust nightly
+  become: true
+  shell: curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain nightly
+- name: Install languages - node, python
+  become: true 
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    use: yay 
+    state: present
+    name:
+      - nodejs
+      - npm
+      - python
+      - python-pip
+- name: Install language servers 1/2 - tsserver, pyright, tailwindcss
+  become: true
+  community.general.npm:
+    state: present
+    global: true
+    name: "{{ item }}"
+  loop:
+    - pyright
+    - typescript
+    - typescript-language-server
+    - "@tailwindcss/language-server"
+- name: Install language servers 2/2 - jsonls, html, cssls
+  become: true
+  community.general.npm:
+    state: present
+    global: true
+    name: vscode-langservers-extracted
+- name: Install rust-analyzer
+  become: true 
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    use: yay 
+    state: present
+    name: rust-analyzer-git
