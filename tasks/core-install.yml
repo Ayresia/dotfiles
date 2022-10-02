@@ -1,0 +1,43 @@
+- name: Install package manager yay
+  become: true
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    name: yay
+    use: makepkg
+    state: present
+- name: Install system packages 1/3 - xorg, xorg-server, xorg-xinit, stow
+  become: true
+  community.general.pacman:
+    name:
+      - xorg
+      - xorg-server
+      - xorg-xinit
+      - stow
+- name: Install system packages 2/3 - git, network-manager-applet, zsh, tmux, alacritty
+  become: true
+  community.general.pacman:
+    name:
+      - git 
+      - network-manager-applet
+      - zsh
+      - tmux
+      - alacritty
+- name: Install system packages 3/3 - ly, i3-gaps, polybar, rlaunch, feh
+  become: true 
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    use: yay 
+    state: present
+    name:
+      - ly
+      - i3-gaps
+      - polybar-git
+      - rlaunch
+      - feh
+- name: Install ibm plex mono
+  become: true 
+  become_user: aur_builder
+  kewlfft.aur.aur:
+    use: yay 
+    state: present
+    name: ttf-ibm-plex

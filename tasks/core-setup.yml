@@ -1,0 +1,22 @@
+- name: Set zsh as default terminal
+  become: true
+  shell: chsh -s /bin/sh
+- name: Enable ly service
+  become: true
+  shell: systemctl enable ly.service
+- name: Fetch dotfiles directories list
+  become: false
+  register: files
+  ansible.builtin.find:
+    paths: ["./configs"]
+    recurse: no
+    file_type: directory
+- name: Symlink configurations
+  with_items: '{{ files.files }}'
+  changed_when: false
+  become: false
+  shell: stow -t ~ {{ item.path | basename }}
+  vars:
+    user_home: "{{ lookup('env', 'HOME') }}"
+  environment:
+    STOW_DIR: "./configs"

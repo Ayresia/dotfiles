@@ -3,8 +3,8 @@
 
 set $mod Mod1
 
-# execute feh in startup
-exec --no-startup-id feh --bg-scale ~/.dotfiles/background.png
+# execute feh in startup and i3 reload
+exec_always --no-startup-id feh --bg-scale ~/.dotfiles/background.png
 
 # execute polybar in startup
 exec --no-startup-id ~/.config/polybar/launch-bar.sh
