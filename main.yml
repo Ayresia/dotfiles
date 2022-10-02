@@ -12,7 +12,6 @@
         name: aur_builder
         create_home: true
         group: wheel
-
     - name: Allow aur_builder user to run sudo pacman without a password
       become: true
       ansible.builtin.lineinfile:
@@ -20,10 +19,15 @@
         line: 'aur_builder ALL=(ALL) NOPASSWD: /usr/bin/pacman'
         create: true
         validate: 'visudo -cf %s'
-
+    - name: Fetch tasks list
+      become: false
+      register: tasks 
+      ansible.builtin.find:
+        paths: ./tasks
+        recurse: no
+        file_type: file
     - name: Setting up system
-      include_tasks: "{{ item }}"
-      loop:
-        - tasks/core-install.yml
-        - tasks/core-setup.yml
-        - tasks/nvim-setup.yml
+      include_tasks: "{{ task.path }}"
+      loop: "{{ tasks.files }}"
+      loop_control:
+        loop_var: task
