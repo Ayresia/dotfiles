@@ -6,8 +6,8 @@ set $mod Mod1
 # execute feh in startup and i3 reload
 exec_always --no-startup-id feh --bg-scale ~/.dotfiles/background.png
 
-# execute polybar in startup
-exec --no-startup-id ~/.config/polybar/launch-bar.sh
+# execute polybar in startup and i3 reload
+exec_always --no-startup-id ~/.config/polybar/launch-bar.sh
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
