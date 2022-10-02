@@ -7,13 +7,13 @@ if ! [ -x "$(command -v ansible)" ]; then
     sudo pacman -S ansible --noconfirm
 fi
 
-# if ! [[ -d "$DOTFILES_DIR" ]]; then
-#   git clone "https://github.com/ayresia/dotfiles.git" "$DOTFILES_DIR"
-# else
-#   git -C "$DOTFILES_DIR" pull
-# fi
+if ! [[ -d "$DOTFILES_DIR" ]]; then
+  git clone "https://github.com/ayresia/dotfiles.git" "$DOTFILES_DIR"
+else
+  git -C "$DOTFILES_DIR" pull
+fi
 
-# cd "$DOTFILES_DIR"
+cd "$DOTFILES_DIR"
 
-ansible-galaxy install -r ../requirements.yml
-ansible-playbook --diff ../main.yml --ask-become-pass
+ansible-galaxy install -r requirements.yml
+ansible-playbook --diff main.yml --ask-become-pass
