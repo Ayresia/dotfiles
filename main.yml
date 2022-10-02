@@ -25,15 +25,12 @@
         line: 'aur_builder ALL=(ALL) NOPASSWD: /usr/bin/pacman'
         create: true
         validate: 'visudo -cf %s'
-    - name: Fetch tasks list
-      become: false
-      register: tasks 
-      ansible.builtin.find:
-        paths: ./tasks
-        recurse: no
-        file_type: file
     - name: Setting up system
-      include_tasks: "{{ task.path }}"
-      loop: "{{ tasks.files }}"
+      include_tasks: "{{ task }}"
+      loop:
+        - tasks/core-install.yml
+        - tasks/core-setup.yml
+        - tasks/lsp-install.yml
+        - tasks/nvim-setup.yml
       loop_control:
         loop_var: task
