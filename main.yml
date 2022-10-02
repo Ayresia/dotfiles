@@ -1,4 +1,10 @@
 - hosts: localhost
+  vars_prompt:
+    - name: ssh_email
+      prompt: Enter your email for the ssh key
+      private: false
+    - name: ssh_passphrase
+      prompt: Enter a passphrase for the ssh key
   pre_tasks:
     - name: Upgrade system packages and cache
       become: true 

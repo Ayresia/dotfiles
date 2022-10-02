@@ -1,3 +1,5 @@
+- name: Create ssh key
+  shell: "ssh-keygen -t ed25519 -C {{ ssh_email }} -N {{ ssh_passphrase }} -f ~/.ssh/id_rsa"
 - name: Set zsh as default terminal
   become: true
   shell: chsh -s /bin/sh
