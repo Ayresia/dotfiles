@@ -1,7 +1,7 @@
 - name: Install rust nightly
   become: true
   shell: curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain nightly
-- name: Install languages - node, python
+- name: Install languages - node, python, csharp
   become: true 
   become_user: aur_builder
   kewlfft.aur.aur:
@@ -12,6 +12,7 @@
       - npm
       - python
       - python-pip
+      - omnisharp-rosyln
 - name: Install language servers 1/2 - tsserver, pyright, tailwindcss
   become: true
   community.general.npm:
