@@ -54,10 +54,11 @@ for _, server in ipairs(servers) do
         capabilities = capabilities,
         on_attach = on_attach
     }
+
 end
 
 require("lspconfig")["omnisharp"].setup {
     cmd = { "omnisharp" },
     capabilities = capabilities,
-    on_attach = on_attach
+    on_attach = on_attach,
 }
