@@ -30,7 +30,7 @@
     use: yay 
     state: present
     name:
-      - ly
+      - ly-git
       - i3-gaps
       - polybar-git
       - rlaunch

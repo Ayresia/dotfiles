@@ -12,7 +12,7 @@
       - npm
       - python
       - python-pip
-      - omnisharp-rosyln
+      - omnisharp-roslyn
 - name: Install language servers 1/2 - tsserver, pyright, tailwindcss
   become: true
   community.general.npm:
