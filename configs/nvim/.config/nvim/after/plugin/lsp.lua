@@ -11,7 +11,7 @@ cmp.setup({
     mapping = cmp.mapping.preset.insert({
         ["<C-b>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
-        ["<C-Space>"] = cmp.mapping.complete(),
+        ["<C-Space>"] = cmp.mapping.confirm(),
         ["<C-e>"] = cmp.mapping.abort(),
     }),
     sources = cmp.config.sources({
