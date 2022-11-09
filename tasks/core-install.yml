@@ -5,7 +5,7 @@
     name: yay
     use: makepkg
     state: present
-- name: Install system packages 1/3 - xorg, xorg-server, xorg-xinit, stow, ripgrep
+- name: Install system packages 1/3 - xorg, xorg-server, xorg-xinit, stow, ripgrep, light
   become: true
   community.general.pacman:
     name:
@@ -14,6 +14,7 @@
       - xorg-xinit
       - stow
       - ripgrep 
+      - light
 - name: Install system packages 2/3 - git, network-manager-applet, zsh, tmux, alacritty
   become: true
   community.general.pacman:
