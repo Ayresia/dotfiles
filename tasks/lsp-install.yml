@@ -36,4 +36,4 @@
   kewlfft.aur.aur:
     use: yay 
     state: present
-    name: rust-analyzer-git
+    name: rust-analyzer
