@@ -29,7 +29,8 @@ local servers = {
     "tailwindcss",
     "jsonls",
     "html",
-    "cssls"
+    "cssls",
+    "omnisharp"
 }
 
 local on_attach = function(client, bufnr)
@@ -49,16 +50,18 @@ end
 local capabilities = require("cmp_nvim_lsp")
     .default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-for _, server in ipairs(servers) do 
-    require("lspconfig")[server].setup {
-        capabilities = capabilities,
-        on_attach = on_attach
-    }
+require("luasnip.loaders.from_vscode").lazy_load()
 
+local default_lsp_config = {
+    capabilities = capabilities,
+    on_attach = on_attach
+}
+
+for _, server in ipairs(servers) do 
+    require("lspconfig")[server].setup(default_lsp_config)
 end
 
-require("lspconfig")["omnisharp"].setup {
+require("lspconfig")["omnisharp"].setup({
     cmd = { "omnisharp" },
-    capabilities = capabilities,
-    on_attach = on_attach,
-}
+    default_lsp_config
+})

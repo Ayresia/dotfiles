@@ -10,6 +10,7 @@ return require("packer").startup(function()
     use("saadparwaiz1/cmp_luasnip")
     use("nvim-lua/plenary.nvim")
     use("nvim-telescope/telescope.nvim")
+    use("rafamadriz/friendly-snippets")
 
     use("nvim-treesitter/nvim-treesitter", {
         run = function()
