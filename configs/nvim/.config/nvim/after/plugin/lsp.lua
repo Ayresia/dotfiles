@@ -52,16 +52,15 @@ local capabilities = require("cmp_nvim_lsp")
 
 require("luasnip.loaders.from_vscode").lazy_load()
 
-local default_lsp_config = {
-    capabilities = capabilities,
-    on_attach = on_attach
-}
-
 for _, server in ipairs(servers) do 
-    require("lspconfig")[server].setup(default_lsp_config)
+    require("lspconfig")[server].setup({
+        capabilities = capabilities,
+        on_attach = on_attach
+    })
 end
 
 require("lspconfig")["omnisharp"].setup({
     cmd = { "omnisharp" },
-    default_lsp_config
-})
+    on_attach = on_attach,
+    capabilities = capabilities
+});
