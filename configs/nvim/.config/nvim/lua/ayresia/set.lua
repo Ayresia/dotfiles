@@ -23,7 +23,7 @@ vim.opt.updatetime = 50
 
 vim.g.mapleader = " "
 
-local themeLoaded, _ = pcall(vim.cmd, "colorscheme moonfly")
+local themeLoaded, _ = pcall(vim.cmd.colorscheme, "moonfly")
 
 if themeLoaded then
     vim.g.moonflyCursorColor = true

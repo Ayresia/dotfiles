@@ -1,4 +1,4 @@
-vim.opt.completeopt = { "menu", "menuone", "noselect" }
+vim.opt.completeopt = { "menuone", "noselect" }
 
 local cmp = require("cmp")
 
