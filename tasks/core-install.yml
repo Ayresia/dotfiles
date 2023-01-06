@@ -24,7 +24,7 @@
       - zsh
       - tmux
       - alacritty
-- name: Install system packages 3/3 - ly, i3-gaps, polybar, rlaunch, feh, maim, xclip
+- name: Install system packages 3/3 - ly, i3-wm, polybar, rlaunch, feh, maim, xclip
   become: true 
   become_user: aur_builder
   kewlfft.aur.aur:
@@ -32,7 +32,7 @@
     state: present
     name:
       - ly-git
-      - i3-gaps
+      - i3-wm
       - polybar-git
       - rlaunch
       - feh
