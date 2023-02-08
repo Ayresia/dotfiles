@@ -3,9 +3,6 @@
 - name: Set zsh as default terminal
   become: true
   shell: chsh -s /usr/bin/zsh
-- name: Enable ly service
-  become: true
-  shell: systemctl enable ly.service
 - name: Fetch dotfiles directories list
   become: false
   register: files
