@@ -36,7 +36,7 @@ floating_modifier $mod
 bindsym $mod+Return exec alacritty
 
 # execute a app launcher
-bindsym $mod+d exec rlaunch -h 25 --color0 "#080808" --color1 "#80A0FF" --color4 "#080808" --font "IBM Plex Mono:size=10"
+bindsym $mod+d exec rlaunch -h 25 --color0 "#080808" --color1 "#80A0FF" --color4 "#080808" --font "IBM Plex Mono:size=8"
 
 # screenshot (region)
 bindsym $mod+shift+s exec --no-startup-id maim -s | xclip -selection clipboard -t image/png
