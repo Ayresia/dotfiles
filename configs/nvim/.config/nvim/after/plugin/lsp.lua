@@ -2,7 +2,15 @@ vim.opt.completeopt = { "menuone", "noselect" }
 
 local cmp = require("cmp")
 
+local winhighlight = {
+    winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel",
+}
+
 cmp.setup({
+    window = {
+        completion = cmp.config.window.bordered(winhighlight),
+        documentation = cmp.config.window.bordered(winhighlight),
+    },
     snippet = {
         expand = function(args)
             require("luasnip").lsp_expand(args.body)
@@ -63,4 +71,4 @@ require("lspconfig")["omnisharp"].setup({
     cmd = { "omnisharp" },
     on_attach = on_attach,
     capabilities = capabilities
-});
+})
