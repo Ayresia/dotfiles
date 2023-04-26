@@ -11,6 +11,7 @@ return require("packer").startup(function()
     use("nvim-lua/plenary.nvim")
     use("nvim-telescope/telescope.nvim")
     use("rafamadriz/friendly-snippets")
+    use("numToStr/Comment.nvim")
 
     use("nvim-treesitter/nvim-treesitter", {
         run = function()
