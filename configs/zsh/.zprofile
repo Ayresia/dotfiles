@@ -1,0 +1,2 @@
+# Start display server
+startx

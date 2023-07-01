@@ -2,7 +2,8 @@
   shell: "ssh-keygen -t ed25519 -C {{ ssh_email }} -N {{ ssh_passphrase }} -f ~/.ssh/id_rsa"
 - name: Set zsh as default terminal
   become: true
-  shell: chsh -s /usr/bin/zsh
+  changed_when: false
+  ansible.builtin.command: usermod --shell /usr/bin/zsh {{ ansible_env.USER }}
 - name: Fetch dotfiles directories list
   become: false
   register: files

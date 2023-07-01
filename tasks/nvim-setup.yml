@@ -2,16 +2,15 @@
   become: true 
   become_user: aur_builder
   kewlfft.aur.aur:
-    use: yay 
+    use: paru
     state: present
     name: nvim-packer-git
 - name: Install nvim
   become: true 
   become_user: aur_builder
   kewlfft.aur.aur:
-    use: yay 
+    use: paru
     state: present
     name: neovim
-
 - name: Auto install nvim plugins
   shell: nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
