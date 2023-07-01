@@ -1,7 +1,7 @@
 return require("packer").startup(function()
     use("wbthomason/packer.nvim")
     use("bluz71/vim-moonfly-colors")
-    use("bluz71/vim-mistfly-statusline")
+    use("bluz71/nvim-linefly")
     use("neovim/nvim-lspconfig")
     use("hrsh7th/cmp-nvim-lsp")
     use("hrsh7th/cmp-buffer")
