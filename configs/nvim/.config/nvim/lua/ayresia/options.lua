@@ -22,10 +22,3 @@ vim.opt.scrolloff = 8
 vim.opt.updatetime = 50
 
 vim.g.mapleader = " "
-
-local themeLoaded, _ = pcall(vim.cmd.colorscheme, "moonfly")
-
-if themeLoaded then
-    vim.g.moonflyCursorColor = true
-    vim.g.moonflyNormalFloat = true
-end
