@@ -7,13 +7,13 @@ return {
             local cmp = require("cmp")
 
             local winhighlight = {
-                winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel",
+                winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel"
             }
 
             cmp.setup({
                 window = {
                     completion = cmp.config.window.bordered(winhighlight),
-                    documentation = cmp.config.window.bordered(winhighlight),
+                    documentation = cmp.config.window.bordered(winhighlight)
                 },
                 snippet = {
                     expand = function(args)
@@ -24,13 +24,13 @@ return {
                     ["<C-b>"] = cmp.mapping.scroll_docs(-4),
                     ["<C-f>"] = cmp.mapping.scroll_docs(4),
                     ["<C-Space>"] = cmp.mapping.confirm(),
-                    ["<C-e>"] = cmp.mapping.abort(),
+                    ["<C-e>"] = cmp.mapping.abort()
                 }),
                 sources = cmp.config.sources({
                     { name = "nvim_lsp" },
-                    { name = "luasnip" },
+                    { name = "luasnip" }
                 }, {
-                    { name = "buffer" },
+                    { name = "buffer" }
                 })
             })
         end
