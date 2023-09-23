@@ -4,7 +4,7 @@
 set $mod Mod1
 
 # execute feh in startup and i3 reload
-exec_always --no-startup-id feh --bg-scale ~/.dotfiles/background.png
+exec_always --no-startup-id feh --bg-scale ~/.dotfiles/backgrounds/memorize-understand.jpg
 
 # execute polybar in startup and i3 reload
 exec_always --no-startup-id ~/.config/polybar/launch-bar.sh
